@@ -1,7 +1,9 @@
 def calcula_idade(dataNiver)
-  idade = Date.today.year - dataNiver.year
-  if Date.today.month < dataNiver.month || (Date.today.month == dataNiver.month && Date.today.day < dataNiver.day)
-    idade -= 1
-  end
+  hoje = Date.today
+  aniversario = Date.new(hoje.year, dataNiver.month, dataNiver.day)
+
+  idade = hoje.year - dataNiver.year
+  idade -= 1 if hoje < aniversario
+
   idade
 end
